@@ -1,24 +1,33 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "ACS Digital — Apoio ao Agente Comunitário de Saúde" },
+      {
+        name: "description",
+        content:
+          "Aplicativo de apoio ao Agente Comunitário de Saúde: visitas, cadastros e consultas. Funciona offline.",
+      },
+      { property: "og:title", content: "ACS Digital — Apoio ao Agente Comunitário de Saúde" },
+      {
+        property: "og:description",
+        content:
+          "Aplicativo de apoio ao Agente Comunitário de Saúde: visitas, cadastros e consultas. Funciona offline.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <iframe
+      src="/acs-digital.html"
+      title="ACS Digital"
+      className="fixed inset-0 h-full w-full border-0"
+    />
   );
 }
