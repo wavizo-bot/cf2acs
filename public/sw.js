@@ -1,7 +1,7 @@
 /* ACS Digital - service worker
    Estratégia: rede primeiro (sempre pega a versão mais nova quando há internet),
    cache como reserva para uso offline. */
-const APP_VERSION = '2026.09.15';
+const APP_VERSION = '2026.09.21';
 const CACHE_NAME = 'acs-digital-' + APP_VERSION;
 const PRECACHE = ['./', './acs-digital.html'];
 
